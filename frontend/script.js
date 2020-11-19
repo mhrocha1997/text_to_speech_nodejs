@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     refreshComments();
 })
@@ -10,7 +9,6 @@ $(document).ready(function(){
 }
 
 function refreshComments(){
-
     let xhttp = new XMLHttpRequest();
     
     xhttp.open('GET','http://localhost:8000/comments',true);
@@ -20,7 +18,6 @@ function refreshComments(){
         if (this.readyState == 4 && this.status ==200){
        
             let response = JSON.parse(this.responseText);
-            console.log(response)
 
             comments = document.getElementById("comments");
             comments.innerHTML = "";
@@ -39,7 +36,7 @@ function refreshComments(){
                 });
 
                 comments.innerHTML = comments.innerHTML + ` 
-                <div class="card w-75">
+                <div class="card">
                         <div class="card-body">
                             <p class="card-text"> ${comment}</p>
                             <button onClick="listen(${id})" id="${id}" class="btn btn-primary">Ouvir</button>
