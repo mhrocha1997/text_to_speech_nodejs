@@ -1,4 +1,3 @@
-import {connection} from '..database/connection.js';
 
 const mysql = require('mysql');
 
@@ -10,28 +9,31 @@ const con = mysql.createConnection({
 });
 
 
-async function insertComment(text){
+async function insertComment(request,response){
+    const {comment} = request.body;
+   
     con.connect(function(err){
-        console.log('conectado');
-        var sql = "INSERT INTO comments(comment) VALUES ?";
+        var sql = `INSERT INTO comments(comment) VALUES ('${comment}')`;
 
-        con.query(sql,text,function(err,result){
+        con.query(sql,function(err,result){
             if (err) throw err;
-            console.log('Commentário cadastrado')
+            return result
         });
         
     });
     
+    return response.json(comment);
 }
 
 
-async function selectComments(){
+async function selectComments(request,response){
     con.connect(function(err){
         con.query('SELECT * FROM comments',function(err, result, fields){
             if(err) throw err;
-            return result;
+            return response.json(result);
         });
     });
 }
 
-module.exports = {selectComments,insertComment}
+module.exports = {selectComments,insertComment};
+

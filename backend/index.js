@@ -1,16 +1,19 @@
-const express = require('express');
+const express=  require('express');
+const routes = require('./routes');
+const cors = require('cors');
+const makeConnection = require('./database/connection');
+
+makeConnection();
+
 const app = express();
-const db = require('./database/connection');
 
+app.use(cors());
+app.use(express.json());
+app.use(routes);
 
-app.get('/',function(req,res){
-    res.send('Bem vindo')
-});
-
-app.get('sobre',function(req,res){
-    res.send('')
-})
 
 app.listen(8000,function(){
     console.log('Servidor rodando na url http://localhost:8000');
 });
+
+module.exports = app;

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node backend/index.js"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +13,7 @@
   "dependencies": {
     "2": "^3.0.0",
     "@ibm-watson/speech-to-text-nodejs": "^2.9.1",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "ibm-watson": "^5.7.1",
     "mysql": "^2.18.1",
