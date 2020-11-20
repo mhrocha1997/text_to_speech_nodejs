@@ -11,7 +11,7 @@ $(document).ready(function(){
 function refreshComments(){
     let xhttp = new XMLHttpRequest();
     
-    xhttp.open('GET','http://localhost:8000/comments',true);
+    xhttp.open('GET','http://localhost:8080/comments',true);
     xhttp.send();
     
     xhttp.onreadystatechange = function(){
@@ -28,7 +28,7 @@ function refreshComments(){
                 data = JSON.stringify({id: id, comment: comment});
         
                 $.ajax({
-                    url: "http://localhost:8000/play",
+                    url: "http://localhost:8080/play",
                     type: 'post',
                     datatype: 'json',
                     contentType: 'application/json',
@@ -59,7 +59,7 @@ function register(){
     data = JSON.stringify({comment: comment});
     
     $.ajax({
-        url: "http://localhost:8000/create",
+        url: "http://localhost:8080/create",
         type: 'post',
         datatype: 'json',
         contentType: 'application/json',

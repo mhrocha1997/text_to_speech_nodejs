@@ -21,8 +21,8 @@ app.get('/', function (req, res) {
     
 });
 
-open('http://localhost:8000');
+open('http://localhost:8080');
 
-app.listen(8000);
+app.listen(8080);
 
 module.exports = app;
