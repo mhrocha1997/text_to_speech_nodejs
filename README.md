@@ -41,8 +41,3 @@ Assim que for executado, uma página no navegador será aberta no localhost:8080
 Insira um texto na caixa e clique no botão cadastrar. Aguardando alguns segundos, será possível pressionar o botão ouvir para executar o áudio.
 
 ![Screenshot_1](https://user-images.githubusercontent.com/52762669/99740034-e46ca900-2aac-11eb-892d-5f4cd9da48e4.jpg)
-
-<<<<<<< HEAD
-=======
-
->>>>>>> 893aaf7da2b4565a181e51525df130f3438b75f8
