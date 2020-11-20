@@ -20,19 +20,19 @@ function refreshComments(){
             let response = JSON.parse(this.responseText);
             let comments = document.getElementById("comments");
             comments.innerHTML = "";
-            for(let i = 0;i<response.length;i++){
+            for(let i = response.length-1;i>=0;i--){
                 let id = response[i].id;
                 let comment = response[i].comment;
 
                 data = JSON.stringify({id: id, comment: comment});
-                comments.innerHTML = comments.innerHTML + ` 
-                            <div class="card">
+                comments.innerHTML = comments.innerHTML +  
+                            `<div class="card">
                                 <div class="card-body">
                                     <p class="card-text"> ${comment}</p>
                                     <button onClick="listen(${id})" id="${id}" class="btn btn-primary">Ouvir</button>
                                 </div>
-                            </div>
-                            `;  
+                            </div>`;
+                              
                 $(`#${id}`).prop('disabled',true);
 
                 $.ajax({
@@ -47,10 +47,6 @@ function refreshComments(){
                         }, 2000);
                     }
                 });
-
-                
-                
-            
             }
         }
     }
