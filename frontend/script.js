@@ -44,7 +44,7 @@ function refreshComments(){
                     success: function(){
                         setTimeout(function(){ 
                             $(`#${id}`).prop('disabled',false);
-                        }, 1500);
+                        }, 2000);
                     }
                 });
 
