@@ -10,6 +10,7 @@ async function makeConnection(){
     
     con.connect(function(err){
         if(err) throw err;
+                
         con.query(" CREATE DATABASE IF NOT EXISTS text_to_speech", function(err, result){
             if (err) throw err;
     

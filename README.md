@@ -18,6 +18,11 @@ Primeiro, você deverá alterar o arquivo config.json dentro da pasta backend, s
   }
 ```
 
+> :warning: **Caso não esteja utilizando MariaDB**: é necessário executar o seguinte comando no terminal MySQL:
+
+```sh
+  ALTER USER '<usuário>'@'localhost' IDENTIFIED WITH mysql_native_password BY '<senha>'
+```
 
 ### Instalando as Dependências
 
@@ -27,6 +32,7 @@ No terminal, abra a pasta raiz do projeto e execute o seguinte comando:
 npm install
 ```
 ### Rodando o servidor
+
 
 Ao finalizar a instalação das dependências, execute seu servidor MySQL, e em seguida execute o comando abaixo:
 

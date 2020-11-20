@@ -18,8 +18,7 @@ function refreshComments(){
         if (this.readyState == 4 && this.status ==200){
        
             let response = JSON.parse(this.responseText);
-            console.log(response)
-            comments = document.getElementById("comments");
+            let comments = document.getElementById("comments");
             comments.innerHTML = "";
             for(let i = 0;i<response.length;i++){
                 let id = response[i].id;
@@ -33,7 +32,9 @@ function refreshComments(){
                                     <button onClick="listen(${id})" id="${id}" class="btn btn-primary">Ouvir</button>
                                 </div>
                             </div>
-                        `;
+                            `;  
+                $(`#${id}`).prop('disabled',true);
+
                 $.ajax({
                     url: "http://localhost:8080/play",
                     type: 'post',
@@ -41,10 +42,13 @@ function refreshComments(){
                     contentType: 'application/json',
                     data: data,
                     success: function(){
-                          
+                        setTimeout(function(){ 
+                            $(`#${id}`).prop('disabled',false);
+                        }, 1500);
                     }
                 });
 
+                
                 
             
             }
