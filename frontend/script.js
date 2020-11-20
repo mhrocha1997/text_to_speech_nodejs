@@ -18,31 +18,34 @@ function refreshComments(){
         if (this.readyState == 4 && this.status ==200){
        
             let response = JSON.parse(this.responseText);
-
+            console.log(response)
             comments = document.getElementById("comments");
             comments.innerHTML = "";
             for(let i = 0;i<response.length;i++){
-                let id = i+1;
+                let id = response[i].id;
                 let comment = response[i].comment;
 
                 data = JSON.stringify({id: id, comment: comment});
-        
+                comments.innerHTML = comments.innerHTML + ` 
+                            <div class="card">
+                                <div class="card-body">
+                                    <p class="card-text"> ${comment}</p>
+                                    <button onClick="listen(${id})" id="${id}" class="btn btn-primary">Ouvir</button>
+                                </div>
+                            </div>
+                        `;
                 $.ajax({
                     url: "http://localhost:8080/play",
                     type: 'post',
                     datatype: 'json',
                     contentType: 'application/json',
-                    data: data
+                    data: data,
+                    success: function(){
+                          
+                    }
                 });
 
-                comments.innerHTML = comments.innerHTML + ` 
-                <div class="card">
-                        <div class="card-body">
-                            <p class="card-text"> ${comment}</p>
-                            <button onClick="listen(${id})" id="${id}" class="btn btn-primary">Ouvir</button>
-                        </div>
-                    </div>
-                ` ; 
+                
             
             }
         }

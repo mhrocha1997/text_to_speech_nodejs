@@ -22,12 +22,14 @@ section{
 
 .section-comments{
     width: 50%;
+    
+
+}
+#comments{
     overflow-y: scroll;
     height: 600px;
     padding: 4rem;
-
 }
-
 .card{
     margin: 1rem;
 }
