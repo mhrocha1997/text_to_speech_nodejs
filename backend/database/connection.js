@@ -4,8 +4,8 @@ const config = require('../config.json');
 async function makeConnection(){
     var con = mysql.createConnection({
         host: "localhost",
-        user: "root",
-        password: ""
+        user: `${config.user}`,
+        password: `${config.password}`
     });
     
     con.connect(function(err){
